@@ -7,6 +7,7 @@ module Trestle
         helper_method :current_user, :logged_in?
 
         before_action :require_authenticated_user
+        before_action :set_paper_trail_whodunnit
 
         around_action :set_locale, if: :logged_in? if Trestle.config.auth.locale
         around_action :set_time_zone, if: :logged_in? if Trestle.config.auth.time_zone
